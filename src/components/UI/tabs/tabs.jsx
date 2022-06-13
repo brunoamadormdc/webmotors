@@ -11,8 +11,8 @@ class Tabs extends React.Component {
             <nav>
                 <div className="__tabs">
                     
-                    <div className={`__tabs--content ${this.props.tabActive === 0 ? 'active' : ''}`} onClick={()=>{this.props.toggleTab()}}>Comprar<br />Carros</div>
-                    <div className={`__tabs--content ${this.props.tabActive === 1 ? 'active' : ''}`} onClick={()=>{this.props.toggleTab()}}>Comprar<br />Motos</div>
+                    <div className={`__tabs--content __cars ${this.props.tabActive === 0 ? 'active' : ''}`} onClick={()=>{this.props.toggleTab()}}>Comprar<br />Carros</div>
+                    <div className={`__tabs--content __motos ${this.props.tabActive === 1 ? 'active' : ''}`} onClick={()=>{this.props.toggleTab()}}>Comprar<br />Motos</div>
                 </div>
                 <div className="__sell">
                     <button>Vender meu carro</button>

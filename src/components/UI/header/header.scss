@@ -5,7 +5,18 @@ header {
     overflow:hidden;
     padding:20px 0px 0px 0px;
     margin:0 auto;
-    .logo {
 
+}
+
+@media(max-width:600px) {
+    header {
+        .logo{
+            width:100%;
+            img {
+                display:block;
+                margin:0 auto;
+            }
+        }
+        
     }
 }

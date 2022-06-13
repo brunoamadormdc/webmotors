@@ -12,6 +12,13 @@ body {
   margin:0 auto;
 }
 
+@media(max-width:600px) {
+  .App {
+    width:100% !important;
+  }
+  
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

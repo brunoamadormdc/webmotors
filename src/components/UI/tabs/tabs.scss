@@ -4,7 +4,7 @@ nav{
     height:auto;
     overflow:hidden;
     justify-content: flex-start;
-    margin:30px 0 30px 0;
+    margin:30px 0 0px 0;
     .__tabs {
         display:flex;
         width:40%;
@@ -19,10 +19,28 @@ nav{
             text-transform:uppercase;
             line-height:3.5vh;
             margin:0px 3% 0px 0px;
+
+            background-position:left 10px top 70%;
+            background-repeat:no-repeat;
+            background-size:35px 35px;
+            &.__cars {
+                background-image:url('../../../assets/images/car-black.png');
+                &.active {
+                    background-image:url('../../../assets/images/car-red.png') !important;
+                    color:#CA2430;
+                }
+            }
+            &.__motos {
+                background-image:url('../../../assets/images/moto-black.png');
+                &.active {
+                    background-image:url('../../../assets/images/moto-red.png') !important;
+                    color:#CA2430;
+                }
+            }
             cursor:pointer;
             transition: all 0.3s;
             &.active {
-                color:red;
+                color:#CA2430;
             }
             &:first-line {
                 font-size:11px;
@@ -31,7 +49,7 @@ nav{
             }
             &:hover{
                 transition: all 0.2s;
-                border-bottom:2px solid red;
+                border-bottom:2px solid #CA2430;
             }
             
             
@@ -50,6 +68,36 @@ nav{
             border:2px solid #D8B16B;
             color:#D8B16B;
             text-transform:uppercase;
+            
+        }
+    }
+}
+
+@media(max-width:600px) {
+    nav {
+        flex-direction: column;
+        .__tabs {
+            width:100% !important;
+            .__tabs--content {
+                background-position:left 10px top 70%;
+                background-repeat:no-repeat;
+                background-size:35px 35px;
+            }
+        }
+        .__sell {
+            margin-top:20px;
+            margin-bottom:20px;
+            width:100%;
+        }
+        button {
+            padding:5px !important;
+            background-color:transparent;
+            font-weight:bold;
+            border:2px solid #D8B16B;
+            color:#D8B16B;
+            text-transform:uppercase;
+            margin:0 auto !important;
+            width:80%;
             
         }
     }

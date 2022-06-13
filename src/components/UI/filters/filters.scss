@@ -1,6 +1,6 @@
 .__filters{
     display:flex;
-    margin:30px 0 0 0;
+    margin:0px 0 0 0;
     background-color:#fff;
     padding:20px;
     flex-direction:column;
@@ -45,7 +45,11 @@
                         width:80%;
                         border:1px solid #eee;
                         outline:0px;
-                        padding-left:20px;
+                        padding-left:30px;
+                        background-size:20px 20px;
+                        background-image:url('../../../assets/images/location.png');
+                        background-repeat:no-repeat;
+                        background-position:left 5px top 10px;
                     }
                     select {
                         width:20%;
@@ -61,10 +65,76 @@
                         width:100%;
                     }
                 }
+
+            }
+            .__advancedsearch {
+                margin-top:10px;
+                width:30%;
+                display:flex;
+                justify-content: flex-start;
+                align-items:center;
+                font-size:12px;
+                color:#CA2430;
+                font-weight:bold;
+                cursor:pointer;
+                margin-bottom:30px;
+
+            }
+            .__viewoffers {
+                width:60%;
+                display:flex;
+                align-items: center;
+                justify-content: flex-end;
+                margin-bottom:30px;
+                .cleanfilters {
+                    cursor:pointer;
+                    font-size:12px;
+                    font-weight:bold;
+                    margin-right:30px;
+                }
+                button {
+                    width:200px;
+                    padding:20px;
+                    border:0px;
+                    outline:0px;
+                    background-color:#CA2430;
+                    color:#fff;
+                    font-weight:bold;
+                    cursor:pointer;
+                }
             }
             
         }
         
+    }
+}
+
+@media(max-width:600px) {
+    .__filters {
+        .__filters--row {
+            &.__filters--content {
+                width:100%;
+                flex-direction: column;
+                .__box{
+                    width:100% !important;
+                    flex: column;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    margin-bottom:0px;
+                    input[type=text] {
+                        width:95% !important;
+                        margin-bottom:10px;
+                    }
+                }
+                &.__filters--search {
+                    flex-direction: row !important;
+                }
+            } 
+        }
+    } 
+    .__customSelect {
+        margin-bottom:10px;
+        width:97% !important;
     }
 }
 
@@ -76,6 +146,7 @@
     border:1px solid #CA2430;
     margin-right:10px;
     transition:all 0.1s;
+    
     cursor:pointer;
     &.active {
         background-image:url('../../../assets/images/tick.png');
@@ -97,6 +168,7 @@
     background-repeat:no-repeat;
     background-position:right 5px top 20px;
     background-size:8px 8px;
+
     span {
         font-size:10px;
         cursor:pointer;
