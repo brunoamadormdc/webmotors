@@ -70,13 +70,15 @@ class CustomSelect extends React.Component {
     }
 
     sendDispatch(val) {
-        this.props.changeStringInfo({ type: this.props.type, value: val })
         this.toggleModal({ modalState: false })
+        this.props.changeStringInfo({ type: this.props.type, value: val })
+        
     }
 
     sendDispatchApi(val) {
-        this.props.changeStringApiInfo({ type: this.props.type, name: val['Name'], id:val['ID'] })
         this.toggleModal({ modalState: false })
+        this.props.changeStringApiInfo({ type: this.props.type, name: val['Name'], id:val['ID'] })
+        
     }
 
     apiComponent() {
@@ -87,8 +89,8 @@ class CustomSelect extends React.Component {
             <div className={`__customSelect--modal ${this.state.modalState ? 'active' : ''}`}
                 onMouseLeave={() => { this.toggleModal(false) }}
             >
-                {this.props.lists[this.props.type].map(val =>
-                    <span onClick={() => {
+                {this.props.lists[this.props.type].map((val,idx) =>
+                    <span key={idx} onClick={() => {
                         this.sendDispatchApi(val)
                     }}>{val['Name']}</span>
                 )}
@@ -104,8 +106,8 @@ class CustomSelect extends React.Component {
             <div className={`__customSelect--modal ${this.state.modalState ? 'active' : ''}`}
                 onMouseLeave={() => { this.toggleModal(false) }}
             >
-                {this.props.lists[this.props.type].map(val =>
-                    <span onClick={() => {
+                {this.props.lists[this.props.type].map((val,idx) =>
+                    <span key={idx} onClick={() => {
                         this.sendDispatch(val)
                     }}>{val}</span>
                 )}
