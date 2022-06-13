@@ -7,7 +7,10 @@ import './filters.scss'
 class CustomSelect extends React.Component {
     constructor(props) {
         super(props)
-
+        this.state = {
+            modalState: false,
+            width: this.props.width
+        }
     }
 
     componentDidMount() {
@@ -32,10 +35,7 @@ class CustomSelect extends React.Component {
         }
     }
 
-    state = {
-        modalState: false,
-        width: this.props.width
-    }
+    
 
     verifyWidth () {
         window.addEventListener('resize',(e)=>{
