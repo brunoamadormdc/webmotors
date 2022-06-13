@@ -8,20 +8,20 @@ class Checkbox extends React.Component {
         super(props)
     }
     state = {
-        checkstate:this.props.active,
+        checkstate: this.props.active,
     }
-    
+
 
     toggleState() {
-        this.props.changeState(this.state.checkstate,this.props.type)
-        this.setState({checkstate:!this.state.checkstate})
-       
+        this.props.changeState(this.state.checkstate, this.props.type)
+        this.setState({ checkstate: !this.state.checkstate })
+
     }
-    
+
     render() {
         return (
-            <div className={`__checkbox ${this.state.checkstate ? '': 'active'}`} onClick={()=>{this.toggleState()}}>
-                
+            <div className={`__checkbox ${this.state.checkstate ? '' : 'active'}`} onClick={() => { this.toggleState() }}>
+
             </div>
         )
     }
@@ -30,7 +30,7 @@ class Checkbox extends React.Component {
 const mapStateToProps = (state) => ({
     news: state.ux.news,
     used: state.ux.used,
-    
+
 });
 
 export default connect(mapStateToProps)(Checkbox);

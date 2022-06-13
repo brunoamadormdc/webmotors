@@ -21,38 +21,38 @@ class CustomSelect extends React.Component {
 
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
-        
-        if(this.props.type === 'versions') {
-            if(prevProps.fields.models.id != this.props.fields.models.id) {
+
+        if (this.props.type === 'versions') {
+            if (prevProps.fields.models.id != this.props.fields.models.id) {
                 this.getVersions(this.props.fields.models.id)
             }
-            
+
         }
-        if(this.props.type === 'models') {
-            if(prevProps.fields.brands.id != this.props.fields.brands.id) {
+        if (this.props.type === 'models') {
+            if (prevProps.fields.brands.id != this.props.fields.brands.id) {
                 this.getModels(this.props.fields.brands.id)
             }
         }
     }
 
-    
 
-    verifyWidth () {
-        window.addEventListener('resize',(e)=>{
-            if(e.target.window.innerWidth < 600) {
-                this.setState({width:'100'})
+
+    verifyWidth() {
+        window.addEventListener('resize', (e) => {
+            if (e.target.window.innerWidth < 600) {
+                this.setState({ width: '100' })
             }
-            if(e.target.window.innerWidth > 600) {
-                this.setState({width:this.props.width})
+            if (e.target.window.innerWidth > 600) {
+                this.setState({ width: this.props.width })
             }
-            
+
         })
     }
 
     async getBrands() {
         const { data } = await getMake()
         this.props.setLists({ value: data, type: this.props.type })
-        
+
     }
 
     async getModels(makeID) {
@@ -72,29 +72,29 @@ class CustomSelect extends React.Component {
     sendDispatch(val) {
         this.toggleModal({ modalState: false })
         this.props.changeStringInfo({ type: this.props.type, value: val })
-        
+
     }
 
     sendDispatchApi(val) {
         this.toggleModal({ modalState: false })
-        this.props.changeStringApiInfo({ type: this.props.type, name: val['Name'], id:val['ID'] })
-        
+        this.props.changeStringApiInfo({ type: this.props.type, name: val['Name'], id: val['ID'] })
+
     }
 
     apiComponent() {
         return (
             <>
-            <span >{this.props.service === 'api' && this.props.lists[this.props.type].length > 0  ? 
+                <span >{this.props.service === 'api' && this.props.lists[this.props.type].length > 0 ?
                     this.props.fields[this.props.type].name : ''}</span>
-            <div className={`__customSelect--modal ${this.state.modalState ? 'active' : ''}`}
-                onMouseLeave={() => { this.toggleModal(false) }}
-            >
-                {this.props.lists[this.props.type].map((val,idx) =>
-                    <span key={idx} onClick={() => {
-                        this.sendDispatchApi(val)
-                    }}>{val['Name']}</span>
-                )}
-            </div>
+                <div className={`__customSelect--modal ${this.state.modalState ? 'active' : ''}`}
+                    onMouseLeave={() => { this.toggleModal(false) }}
+                >
+                    {this.props.lists[this.props.type].map((val, idx) =>
+                        <span key={idx} onClick={() => {
+                            this.sendDispatchApi(val)
+                        }}>{val['Name']}</span>
+                    )}
+                </div>
             </>
 
         )
@@ -102,16 +102,16 @@ class CustomSelect extends React.Component {
     staticComponent() {
         return (
             <>
-            <span >{this.props.fields[this.props.type]}</span>
-            <div className={`__customSelect--modal ${this.state.modalState ? 'active' : ''}`}
-                onMouseLeave={() => { this.toggleModal(false) }}
-            >
-                {this.props.lists[this.props.type].map((val,idx) =>
-                    <span key={idx} onClick={() => {
-                        this.sendDispatch(val)
-                    }}>{val}</span>
-                )}
-            </div>
+                <span >{this.props.fields[this.props.type]}</span>
+                <div className={`__customSelect--modal ${this.state.modalState ? 'active' : ''}`}
+                    onMouseLeave={() => { this.toggleModal(false) }}
+                >
+                    {this.props.lists[this.props.type].map((val, idx) =>
+                        <span key={idx} onClick={() => {
+                            this.sendDispatch(val)
+                        }}>{val}</span>
+                    )}
+                </div>
             </>
         )
     }
@@ -122,9 +122,9 @@ class CustomSelect extends React.Component {
             <div className="__customSelect" style={{ width: `${this.state.width}%` }} onClick={() => { this.toggleModal(true) }}>
 
                 <span className="title">{this.props.name}:</span>
-               
-                {this.props.lists[this.props.type].length > 0 && this.props.service === 'api' ? this.apiComponent() : null  }
-                {this.props.lists[this.props.type].length > 0 && this.props.service === 'static' ? this.staticComponent() : null  }
+
+                {this.props.lists[this.props.type].length > 0 && this.props.service === 'api' ? this.apiComponent() : null}
+                {this.props.lists[this.props.type].length > 0 && this.props.service === 'static' ? this.staticComponent() : null}
 
             </div>
 
