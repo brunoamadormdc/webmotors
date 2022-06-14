@@ -14,6 +14,7 @@ class CustomSelect extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.props.type)
         if (this.props.type === 'brands') {
             this.getBrands(this.props.type)
         }
