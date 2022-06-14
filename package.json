@@ -2,7 +2,7 @@
   "name": "webmotors",
   "version": "0.1.0",
   "proxy": "https://desafioonline.webmotors.com.br",
-  "homepage": "https://webmotors-inky.vercel.app",
+  "homepage": "http://localhost:3000",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
