@@ -1,0 +1,40 @@
+const {createProxyMiddleware} = require('http-proxy-middleware')
+
+module.exports = app => {
+    app.use(
+       createProxyMiddleware(
+        '/api/OnlineChallenge/Make',
+        {
+            target:'https://desafioonline.webmotors.com.br',
+            changeOrigin:true
+        }
+       )
+    )
+    app.use(
+        createProxyMiddleware(
+        '/api/OnlineChallenge/Model',
+        {
+            target:'https://desafioonline.webmotors.com.br',
+            changeOrigin:true
+        }
+        )
+    )
+    app.use(
+       createProxyMiddleware(
+        '/api/OnlineChallenge/Version',
+        {
+            target:'https://desafioonline.webmotors.com.br',
+            changeOrigin:true
+        }
+       )
+    )
+    app.use(
+        createProxyMiddleware(
+            '/api/OnlineChallenge/Vehicles',
+        {
+            target:'https://desafioonline.webmotors.com.br',
+            changeOrigin:true
+        }
+        )
+    )
+}
